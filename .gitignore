@@ -1,0 +1,20 @@
+# Compiled files
+*.o
+*.a
+
+# Executables
+miniRT
+miniRT_test
+test_debug
+test_parse
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Build
+compile_commands.json
+
