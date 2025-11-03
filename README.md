@@ -353,7 +353,7 @@ This is a school project, but suggestions and feedback are welcome!
 
 ## 📝 License
 
-This project is part of the 42 School curriculum and is provided for educational purposes.
+This project is part of the 42 Gyeongsan curriculum and is provided for educational purposes.
 
 ---
 
@@ -365,7 +365,7 @@ This project is part of the 42 School curriculum and is provided for educational
 
 ## 🙏 Acknowledgments
 
-- **42 Seoul** - For the amazing curriculum
+- **42 Gyeongsan** - For the amazing curriculum
 - **MiniLibX** - Graphics library
 - **Ray Tracing in One Weekend** - Peter Shirley
 - **Computer Graphics: Principles and Practice** - Inspiration
@@ -383,7 +383,7 @@ Have questions or feedback? Feel free to reach out!
 
 <div align="center">
 
-**Made with ❤️ at 42 Seoul**
+**Made with ❤️ at 42 Gyeongsan**
 
 [⬆ Back to Top](#minirt---ray-tracer-engine)
 
