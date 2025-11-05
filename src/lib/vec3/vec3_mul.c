@@ -12,6 +12,19 @@
 
 #include "vec3.h"
 
+/*
+ * vec3_mul - 벡터의 스칼라 곱셈 연산
+ * @v: 벡터
+ * @t: 스칼라 값 (배율)
+ *
+ * 벡터의 각 성분에 스칼라 값을 곱합니다.
+ * 벡터의 방향은 유지하고 크기만 t배로 변경됩니다.
+ * t가 음수이면 방향이 반대가 됩니다.
+ *
+ * 계산: result = v * t = (v.x * t, v.y * t, v.z * t)
+ *
+ * Return: 스칼라 곱셈 결과 벡터
+ */
 t_vec3	vec3_mul(t_vec3 v, double t)
 {
 	t_vec3	result;

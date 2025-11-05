@@ -12,6 +12,20 @@
 
 #include "vec3.h"
 
+/*
+ * vec3_new - 새로운 3차원 벡터 생성
+ * @x: x 좌표값
+ * @y: y 좌표값
+ * @z: z 좌표값
+ *
+ * 주어진 x, y, z 값으로 t_vec3 구조체를 초기화하여 반환합니다.
+ * 
+ * 3차원 공간에서의 점(position) 또는 방향(direction)을 표현할 때 사용합니다.
+ * - 점으로 사용: 공간 상의 위치 (예: 카메라 위치, 광원 위치)
+ * - 방향으로 사용: 벡터의 방향 (예: 광선 방향, 법선 벡터)
+ *
+ * Return: 초기화된 t_vec3 구조체
+ */
 t_vec3	vec3_new(double x, double y, double z)
 {
 	t_vec3	result;

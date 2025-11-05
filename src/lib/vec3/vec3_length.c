@@ -13,6 +13,21 @@
 #include "vec3.h"
 #include <math.h>
 
+/*
+ * vec3_length - 벡터의 길이(크기) 계산
+ * @v: 길이를 계산할 벡터
+ *
+ * 3차원 공간에서 벡터의 유클리드 거리(Euclidean distance)를 계산합니다.
+ * 
+ * 계산: |v| = sqrt(v.x² + v.y² + v.z²) = sqrt(v · v)
+ *
+ * 피타고라스 정리를 3차원으로 확장한 것으로,
+ * 원점에서 (x, y, z) 지점까지의 직선 거리를 나타냅니다.
+ *
+ * vec3_dot(v, v)는 v.x² + v.y² + v.z²와 같습니다.
+ *
+ * Return: 벡터의 길이 (항상 0 이상의 실수)
+ */
 double	vec3_length(t_vec3 v)
 {
 	return (sqrt(vec3_dot(v, v)));

@@ -12,6 +12,16 @@
 
 #include "vec3.h"
 
+/*
+ * vec3_add - 두 3차원 벡터의 덧셈 연산
+ * @v1: 첫 번째 벡터
+ * @v2: 두 번째 벡터
+ *
+ * 두 벡터의 각 성분을 더하여 새로운 벡터를 반환합니다.
+ * result = v1 + v2 = (v1.x + v2.x, v1.y + v2.y, v1.z + v2.z)
+ *
+ * Return: 덧셈 결과 벡터
+ */
 t_vec3	vec3_add(t_vec3 v1, t_vec3 v2)
 {
 	t_vec3	result;

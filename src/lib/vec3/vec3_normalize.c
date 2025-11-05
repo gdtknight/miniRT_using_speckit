@@ -12,6 +12,20 @@
 
 #include "vec3.h"
 
+/*
+ * vec3_normalize - 벡터의 정규화 (단위 벡터로 변환)
+ * @v: 정규화할 벡터
+ *
+ * 벡터의 방향은 유지하면서 크기를 1로 만듭니다.
+ * 단위 벡터(unit vector)는 방향만 나타내고 크기는 항상 1입니다.
+ *
+ * 계산: normalized = v / |v| (|v|는 벡터의 길이)
+ *
+ * 레이트레이싱에서 방향 벡터는 대부분 정규화된 상태로 사용됩니다.
+ * 정규화된 벡터를 사용하면 내적 계산 시 cos(θ) 값을 직접 얻을 수 있습니다.
+ *
+ * Return: 크기가 1인 단위 벡터
+ */
 t_vec3	vec3_normalize(t_vec3 v)
 {
 	return (vec3_div(v, vec3_length(v)));

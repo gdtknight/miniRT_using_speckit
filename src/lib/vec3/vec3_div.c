@@ -12,6 +12,20 @@
 
 #include "vec3.h"
 
+/*
+ * vec3_div - 벡터의 스칼라 나눗셈 연산
+ * @v: 벡터
+ * @t: 나눌 스칼라 값 (0이 아니어야 함)
+ *
+ * 벡터의 각 성분을 스칼라 값으로 나눕니다.
+ * vec3_mul(v, 1/t)와 동일한 결과를 생성합니다.
+ *
+ * 계산: result = v / t = (v.x / t, v.y / t, v.z / t)
+ *
+ * 주로 벡터를 정규화할 때 벡터의 길이로 나누는 용도로 사용됩니다.
+ *
+ * Return: 나눗셈 결과 벡터
+ */
 t_vec3	vec3_div(t_vec3 v, double t)
 {
 	t_vec3	result;
