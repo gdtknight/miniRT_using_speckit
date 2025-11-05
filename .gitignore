@@ -1,6 +1,6 @@
-# Compiled files
+# Compiled Object files
 *.o
-*.a
+*.obj
 
 # Executables
 miniRT
@@ -8,13 +8,31 @@ miniRT_test
 test_debug
 test_parse
 
-# IDE
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
 .vscode/
 .idea/
 
-# OS
-.DS_Store
+# Output files
+output.bmp
+*.bmp
+render_*.png
 
-# Build
-compile_commands.json
+# MLX libraries (will be cloned)
+lib/minilibx-linux/
 
+# Temporary files
+/tmp/
+*.tmp

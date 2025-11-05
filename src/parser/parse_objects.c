@@ -14,20 +14,7 @@
 #include "libft.h"
 
 t_vec3	parse_vec3(char *str);
-
-static t_vec3	parse_color(char *str)
-{
-	t_vec3	color;
-	char	**parts;
-
-	parts = ft_split(str, ',');
-	if (!parts || !parts[0] || !parts[1] || !parts[2])
-		return ((t_vec3){0, 0, 0});
-	color.x = atof(parts[0]) / 255.0;
-	color.y = atof(parts[1]) / 255.0;
-	color.z = atof(parts[2]) / 255.0;
-	return (color);
-}
+t_vec3	parse_color(char *str);
 
 void	parse_sphere(char **parts, t_scene *scene)
 {

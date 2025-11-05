@@ -16,6 +16,23 @@
 void	display_image(t_mlx_data *data)
 {
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	data->img_displayed = 1;
+}
+
+int	loop_hook(t_mlx_data *data)
+{
+	if (!data->img_displayed)
+	{
+		mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+		data->img_displayed = 1;
+	}
+	return (0);
+}
+
+int	expose_hook(t_mlx_data *data)
+{
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	return (0);
 }
 
 int	close_window(t_mlx_data *data)
@@ -30,7 +47,7 @@ int	close_window(t_mlx_data *data)
 
 int	handle_key(int keycode, t_mlx_data *data)
 {
-	if (keycode == 53)
+	if (keycode == KEY_ESC)
 		close_window(data);
 	return (0);
 }

@@ -16,13 +16,31 @@
 #include <unistd.h>
 #include <sys/types.h>
 
+static void	free_parts(char **parts)
+{
+	int	i;
+
+	if (!parts)
+		return ;
+	i = 0;
+	while (parts[i])
+	{
+		free(parts[i]);
+		i++;
+	}
+	free(parts);
+}
+
 void	parse_line(char *line, t_scene *scene)
 {
 	char	**parts;
 
 	parts = ft_split(line, ' ');
 	if (!parts || !parts[0])
+	{
+		free_parts(parts);
 		return ;
+	}
 	if (parts[0][0] == 'A' && !parts[0][1])
 		parse_ambient(parts, scene);
 	else if (parts[0][0] == 'C' && !parts[0][1])
@@ -35,6 +53,7 @@ void	parse_line(char *line, t_scene *scene)
 		parse_plane(parts, scene);
 	else if (parts[0][0] == 'c' && parts[0][1] == 'y' && !parts[0][2])
 		parse_cylinder(parts, scene);
+	free_parts(parts);
 }
 
 static t_scene	*init_scene(void)
@@ -79,10 +98,14 @@ t_scene	*parse_scene(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
+	{
+		printf("Error\n");
 		return (NULL);
+	}
 	scene = init_scene();
 	if (!scene)
 	{
+		printf("Error\n");
 		close(fd);
 		return (NULL);
 	}

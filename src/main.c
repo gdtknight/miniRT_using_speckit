@@ -32,10 +32,7 @@ static t_scene	*init_scene(char *filename)
 	printf("Parsing scene: %s\n", filename);
 	scene = parse_scene(filename);
 	if (!scene)
-	{
-		printf("Error\nFailed to parse scene file\n");
 		return (NULL);
-	}
 	return (scene);
 }
 
@@ -71,9 +68,10 @@ int	main(int argc, char **argv)
 	if (!data)
 		return (1);
 	printf("Done! Displaying (ESC to exit).\n");
-	display_image(data);
+	mlx_loop_hook(data->mlx, (int (*)(void *))loop_hook, data);
 	mlx_key_hook(data->win, handle_key, data);
-	mlx_hook(data->win, 17, 0, close_window, data);
+	mlx_hook(data->win, EVENT_CLOSE, 0, close_window, data);
+	mlx_hook(data->win, EVENT_EXPOSE, 0, expose_hook, data);
 	mlx_loop(data->mlx);
 	return (0);
 }

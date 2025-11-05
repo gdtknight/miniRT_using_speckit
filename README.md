@@ -7,6 +7,7 @@
 [![42 School](https://img.shields.io/badge/42-School-000000?style=flat&logo=42&logoColor=white)](https://42.fr)
 [![Norminette](https://img.shields.io/badge/Norminette-passing-success)](https://github.com/42School/norminette)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux-lightgrey)]()
 
 [Features](#features) • [Demo](#demo) • [Installation](#installation) • [Usage](#usage) • [Documentation](#documentation)
 
@@ -21,6 +22,7 @@
 ### ✨ Key Highlights
 
 - 🎯 **Pure C Implementation** - No external rendering libraries
+- 🖥️ **Cross-Platform** - Works on macOS and Linux
 - 🔍 **Ray-Object Intersection** - Supports spheres, planes, and cylinders
 - 💡 **Phong Lighting Model** - Ambient, diffuse, and specular lighting
 - 📐 **Vector Mathematics** - Custom 3D vector library
@@ -78,7 +80,7 @@
 
 ### Prerequisites
 
-- **macOS** (for MiniLibX)
+#### macOS
 - **Xcode Command Line Tools**
 - **Make**
 
@@ -87,18 +89,59 @@
 xcode-select --install
 ```
 
+#### Linux (Ubuntu/Debian)
+- **GCC**
+- **Make**
+- **X11 development libraries**
+
+```bash
+# Install required packages
+sudo apt-get update
+sudo apt-get install -y gcc make xorg libxext-dev libbsd-dev
+```
+
 ### Build
+
+#### macOS
 
 ```bash
 # Clone the repository
 git clone https://github.com/gdtknight/miniRT_using_speckit.git
 cd miniRT_using_speckit
 
-# Build the project
+# Build the project (uses lib/minilibx)
 make
 
 # Run with a scene file
-./miniRT scenes/simple.rt
+./miniRT scenes/bright_test.rt
+```
+
+#### Linux
+
+```bash
+# Clone the repository
+git clone https://github.com/gdtknight/miniRT_using_speckit.git
+cd miniRT_using_speckit
+
+# Run setup script to install minilibx-linux
+./setup_linux.sh
+
+# Build the project (automatically detects Linux and uses minilibx-linux)
+make
+
+# Run with a scene file
+./miniRT scenes/bright_test.rt
+```
+
+### Platform Detection
+
+The Makefile automatically detects your operating system:
+- **macOS**: Uses `lib/minilibx` with OpenGL/AppKit frameworks
+- **Linux**: Uses `lib/minilibx-linux` with X11 libraries
+
+```bash
+# Check detected platform and build settings
+make info
 ```
 
 ---
@@ -326,6 +369,8 @@ See [GIT_HISTORY.md](./GIT_HISTORY.md) for detailed commit history.
 
 ## 📖 Documentation
 
+- **[Quick Start Guide](./docs/QUICKSTART.md)** - Get started in 5 minutes
+- **[Cross-Platform Guide](./docs/CROSS_PLATFORM.md)** - macOS & Linux support details
 - [GIT_HISTORY.md](./GIT_HISTORY.md) - Complete Git commit history
 - [GEMINI.md](./GEMINI.md) - Development guidelines
 - [Wiki](https://github.com/gdtknight/miniRT_using_speckit/wiki) - Detailed documentation

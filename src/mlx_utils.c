@@ -41,6 +41,7 @@ t_mlx_data	*init_mlx(void)
 	data = malloc(sizeof(t_mlx_data));
 	if (!data)
 		return (NULL);
+	data->img_displayed = 0;
 	if (!init_mlx_connection(data))
 	{
 		free(data);
